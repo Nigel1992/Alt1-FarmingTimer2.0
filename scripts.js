@@ -247,43 +247,22 @@ function getTickOffset() {
 
 function updatetimers(){var a; for(a=0; a<timers.length; a++){updatetimer(a);}}
 function updatetimer(index) {
-    var timer = timers[index];
-    var growstart = floorx(timer.start, timer.plant.cycle * 60 * 1000);
-    var stages = floor((Date.now() - growstart) / timer.plant.cycle / 60 / 1000);
+	var timer = timers[index];
 
-    var el = elid("timer-" + index);
-    var d = stages - timer.plant.stages;
-    if (d < 0) {
-        elcl(el, "progresslabel")[0].innerHTML = "Stages: " + stages + "/" + timer.plant.stages;
-    } else {
-        elcl(el, "progresslabel")[0].innerHTML = "Done (" + (d > 4 ? "5+" : d) + " extra stage" + (d == 1 ? "" : "s") + ")";
-    }
+	var growstart = floorx(timer.start, timer.plant.cycle * 60 * 1000);
+	var stages = floor((Date.now() - growstart) / timer.plant.cycle / 60 / 1000);
 
-    var currentProgress = Math.min(100, 100 * (Date.now() - growstart - getTickOffset()) / (timer.plant.cycle * 60 * 1000 * timer.plant.stages));
-    elcl(el, "progressbar")[0].style.width = currentProgress + "%";
+	var el = elid("timer-" + index);
+	var d = stages - timer.plant.stages;
+	if (d < 0) { elcl(el, "progresslabel")[0].innerHTML = "stages: " + stages + "/" + timer.plant.stages; }
+	else { elcl(el, "progresslabel")[0].innerHTML = "Done (" + (d > 4 ? "5+" : d) + " extra stage" + (d == 1 ? "" : "s") + ")"; }
+	elcl(el, "progressbar")[0].style.width = Math.min(100, 100 * (Date.now() - growstart - getTickOffset()) / (timer.plant.cycle * 60 * 1000 * timer.plant.stages)) + "%";
+	toggleclass(elcl(el, "skiptick")[0], "down", !!timer.tickskipped);
 
-    toggleclass(elcl(el, "skiptick")[0], "down", !!timer.tickskipped);
-
-    var previousStages = timer.stages; // Store previous stages
-    timer.stages = stages; // Update stages for next comparison
-
-    // Check if a new growth tick has been reached
-    if (stages > previousStages) {
-        // Play audio notification
-        var notificationSound = document.getElementById("notificationSound");
-        if (notificationSound) {
-            notificationSound.currentTime = 0; // Rewind to the beginning (in case it's already playing)
-            notificationSound.play();
-        }
-    }
-
-    var str = "";
-    for (var b = 1; b < timer.plant.stages; b++) {
-        str += "<div class='progressdot' style='left:" + (100 * b / timer.plant.stages) + "%'></div>";
-    }
-    elcl(el, "progressdots")[0].innerHTML = str;
+	var str = "";
+	for (var b = 1; b < timer.plant.stages; b++) { str += "<div class='progressdot' style='left:" + (100 * b / timer.plant.stages) + "%'></div>"; }
+	elcl(el, "progressdots")[0].innerHTML = str;
 }
-
 
 function skiptick(index) {
 	var a, b, c, d, timer;
@@ -340,23 +319,14 @@ function changetimer(index){
 	savedata();
 }
 
-function starttimer(index) {
-	var a, b, c, timer;
-	timer = timers[index];
-	if (floorx(timer.start, timer.plant.cycle * 60 * 1000) == floorx(Date.now(), timer.plant.cycle * 60 * 1000)) {
-		showmessage("Resetting didn't change the growth time as the first growth tick didn't happen yet.", 3000);
-	}
-	timer.start = Date.now();
-	timer.tickskipped = false;
+function starttimer(index){
+	var a,b,c,timer;
+	timer=timers[index];
+	if(floorx(timer.start,timer.plant.cycle*60*1000)==floorx(Date.now(),timer.plant.cycle*60*1000)){showmessage("Resetting didn't change the growth time as the first growth tick didn't happen yet.",3000);}
+	timer.start=Date.now();
+	timer.tickskipped=false;
 	updatetimer(index);
 	savedata();
-
-	// Play audio notification
-	var notificationSound = document.getElementById("notificationSound");
-	if (notificationSound) {
-		notificationSound.currentTime = 0; // Rewind to the beginning (in case it's already playing)
-		notificationSound.play();
-	}
 }
 
 function addtimer(){
