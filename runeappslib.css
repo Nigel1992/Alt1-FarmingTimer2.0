@@ -74,17 +74,17 @@
 .contentbox.nohead{border-top-left-radius:12px; border-top-right-radius:12px;}
 .contentboxhead{height:40px; overflow:hidden; border-top-right-radius:15px; position:relative; white-space:nowrap;}
 .contentbox.nohead>.contentboxhead{display:none;}
-.contentboxinner{float:left; background:#CCC url('https://runeapps.org/imgs/altexmid.png'); width:100%; box-shadow:inset 0 0 5px #555; transition:height 1s; padding-top:3px; margin-top:-3px;}
-.carbonleft{background:url('https://runeapps.org/imgs/titlesprite.png') 0px 0px; width:12px; height:40px; display:inline-block;}
-.carbonmid{background:url('https://runeapps.org/imgs/titlesprite.png') 0px -60px; height:40px; display:inline-block; padding-left:20px; vertical-align:top;}
-.carbontoal{background:url('https://runeapps.org/imgs/titlesprite.png') 0px -120px; width:50px; height:40px; display:inline-block; margin:0px -1px;}
-.almid{background:url('https://runeapps.org/imgs/titlesprite.png') 0px -180px; height:40px; margin-right:-100%; width:100%; display:inline-block;}
-.alright{background:url('https://runeapps.org/imgs/titlesprite.png') -15px 0px; width:35px; height:40px; position:absolute; right:0px; top:0px; white-space:nowrap; direction:rtl;}
+.contentboxinner{float:left; background:#CCC url('/imgs/altexmid.png'); width:100%; box-shadow:inset 0 0 5px #555; transition:height 1s; padding-top:3px; margin-top:-3px;}
+.carbonleft{background:url('/imgs/titlesprite.png') 0px 0px; width:12px; height:40px; display:inline-block;}
+.carbonmid{background:url('/imgs/titlesprite.png') 0px -60px; height:40px; display:inline-block; padding-left:20px; vertical-align:top;}
+.carbontoal{background:url('/imgs/titlesprite.png') 0px -120px; width:50px; height:40px; display:inline-block; margin:0px -1px;}
+.almid{background:url('/imgs/titlesprite.png') 0px -180px; height:40px; margin-right:-100%; width:100%; display:inline-block;}
+.alright{background:url('/imgs/titlesprite.png') -15px 0px; width:35px; height:40px; position:absolute; right:0px; top:0px; white-space:nowrap; direction:rtl;}
 .carbonmid>div{position:relative; text-shadow:0px 0px 5px #000; font-family:Times new roman; font-size:38px; color:#CCC; line-height:34px;}
-.displaytogglebutton{background:url('https://runeapps.org/imgs/boxbuttons.png'); cursor:pointer; width:20px; height:20px; display:inline-block; margin-top:10px; background-position:-20px 0px;}
+.displaytogglebutton{background:url('/imgs/boxbuttons.png'); cursor:pointer; width:20px; height:20px; display:inline-block; margin-top:10px; background-position:-20px 0px;}
 .contentbox[data-hide='1'] div .displaytogglebutton{background-position:0px 0px;}
 .contentbox[data-hide='1'] .contentboxinner{height:0px;}
-.closeboxbutton{background:url('https://runeapps.org/imgs/boxbuttons.png'); cursor:pointer; width:20px; height:20px; display:inline-block; margin-top:10px; margin-right:10px; background-position:-40px 0px;}
+.closeboxbutton{background:url('/imgs/boxbuttons.png'); cursor:pointer; width:20px; height:20px; display:inline-block; margin-top:10px; margin-right:10px; background-position:-40px 0px;}
 
 .zoomincursor{}
 .zoomoutcursor{}
