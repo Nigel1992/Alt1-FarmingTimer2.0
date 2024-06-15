@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link rel="icon" href="https://runeapps.org/icon.png" type="image/x-icon" />
+        <script type="text/javascript" src="https://runeapps.org/runeappslib.js"></script>
+        <script type="text/javascript" src="scripts.js"></script>
+        <link rel="stylesheet" type="text/css" href="runeappslib.css"/>
+        <link rel="stylesheet" type="text/css" href="https://runeapps.org/nis/nis.css"/>
+        <link rel="stylesheet" type="text/css" src="https://runeapps.org/nis/alt1-currentskin/skinstyle.css"/>
+        <script type="text/javascript" src="https://runeapps.org/alt1lib.js"></script>
+        <style type="text/css">
+		#timersettings{}
+		.menubutton{height:20px; color:#000; box-sizing:border-box; background:linear-gradient(#E8E8E8,#DDD); text-align:center; cursor:pointer; border:1px solid #999; border-radius:3px; padding:2px 4px; font-family:sans-serif; font-size:13px;}
+		.menubutton:hover{border:1px solid #666;}
+		.menubutton.down{background:linear-gradient(#DEDEDE,#BBB);}
+		.nismainborder{overflow-y:auto;}
+		
+		
+	</style>
+	<style id="newstyle">
+		#timers{}
+			.timer{padding:11px 3px 3px; display:flex; margin:5px; position:relative; background:#CCC; border-radius:4px;}
+				.progressouter{position:absolute; border:1px solid #000; height:4px; width:calc(100% - 8px); top:3px; left:3px;}
+					.progressbar{position:absolute; background:#777; height:100%; top:0px; left:0px;}
+					.progresslabel{display:none; position:absolute; top:0px; left:0px; right:0px; text-align:center;}
+					.progressdots{position:absolute; top:0px; left:0px; right:0px; bottom:0px;}
+						.progressdot{position:absolute; top:0px; width:1px; height:100%; background:rgba(0,0,0,1);}
+				.typeselect{flex-grow:1; width:60px; margin-left:0px; box-sizing:border-box; height:20px;}
+				.subtypeselect{flex-grow:1; width:60px; margin-left:3px; box-sizing:border-box; height:20px;}
+				.locselect{display:none; flex-grow:1; width:50px; margin-left:3px; box-sizing:border-box; height:20px;}
+				.skiptick{flex-grow:0.2; margin-left:3px;}
+				.startbutton{flex-grow:0.2; margin-left:3px;}
+				.moveleft{display:none; margin-left:3px;}
+				.moveright{display:none; margin-left:3px;}
+				.removetimer{margin-left:3px;}
+			#addbuttonwrapper{margin:5px; height:34px;}
+				#addbutton{width:110px; height:20px; color:#000; border-radius:6px; padding:2px 10px; text-align:center; margin:5px auto; background:linear-gradient(to bottom,#888,#666); box-shadow:0px 0px 5px #000; font-size:18px; cursor:pointer;}
+		
+		#messageouter{position:absolute; top:10px; left:10px; right:10px; z-index:10; transition:top 0.5s; -webkit-transition:top 0.5s; -moz-transition:top 0.5s; -ms-transition:top 0.5s; color:#000;}
+		#messageouter.hidden{top:-100px;}
+			#messageinner{font-family:sans-serif; font-size:13px; max-width:400px; box-shadow:0px 0px 10px #000; background:#DDD; border-radius:10px; padding:5px 10px; cursor:pointer;}
+	</style>
+</head>
+<body class="nis" onload="start();">
+	<div id="messageouter" class="hidden"><div id="messageinner" onclick="showmessage();"></div></div>
+	<div id="timers">
+		<span id="timersinner"></span>
+		<div id="addbuttonwrapper">
+			<div id="addbutton" onclick="addtimer();">Add Timer</div>
+		</div>
+	</div>
+    <audio id="notificationSound">
+        <source src="https://cdn.pixabay.com/download/audio/2023/06/01/audio_77fe776ce5.mp3?filename=simple-notification-152054.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+</body>
+</html>
+
+
+
+
+
