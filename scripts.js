@@ -354,14 +354,7 @@ function starttimer(index) {
 	timer.start = Date.now();
 	timer.tickskipped = false;
 	updatetimer(index);
-	savedata();
-
-	// Play audio notification
-	var notificationSound = document.getElementById("notificationSound");
-	if (notificationSound) {
-		notificationSound.currentTime = 0; // Rewind to the beginning (in case it's already playing)
-		notificationSound.play();
-	}
+	savedata();	
 }
 
 function addtimer(){
