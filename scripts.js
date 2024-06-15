@@ -267,8 +267,8 @@ function updatetimer(index) {
     var previousStages = timer.stages || 0; // Initialize to 0 if undefined
     timer.stages = stages; // Update stages for next comparison
 
-    // Check if the plant has fully grown (reached all stages)
-    if (stages === timer.plant.stages && stages > previousStages) {
+    // Check if the plant has fully grown (reached all stages) and no skips occurred
+    if (stages === timer.plant.stages && stages > previousStages && !timer.tickskipped) {
         // Play audio notification
         var notificationSound = document.getElementById("notificationSound");
         if (notificationSound) {
