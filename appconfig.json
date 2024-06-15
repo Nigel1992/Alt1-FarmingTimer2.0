@@ -1,0 +1,17 @@
+{
+	"appName": "test v1",
+	"description": "test4",
+	"appUrl": "./index.html",
+	"configUrl": "./appconfig.json",
+	"iconUrl": "./icon.png",
+	"defaultWidth": 345,
+	"defaultHeight": 406,
+	"minWidth": 345,
+	"minHeight": 406,
+	"maxWidth": 345,
+	"maxHeight": 406,
+	"requestHandlers": [],
+	"activators": [],
+	"permissions": "overlay"
+  }
+  
