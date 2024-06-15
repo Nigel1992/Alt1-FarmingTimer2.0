@@ -272,8 +272,13 @@ function updatetimer(index) {
         // Play audio notification
         var notificationSound = document.getElementById("notificationSound");
         if (notificationSound) {
-            notificationSound.currentTime = 0; // Rewind to the beginning (in case it's already playing)
-            notificationSound.play();
+            try {
+                notificationSound.currentTime = 0; // Rewind to the beginning (in case it's already playing)
+                notificationSound.play();
+                console.log("Notification sound played at " + new Date().toLocaleTimeString());
+            } catch (error) {
+                console.error("Error playing notification sound:", error);
+            }
         }
     }
 
@@ -283,6 +288,7 @@ function updatetimer(index) {
     }
     elcl(el, "progressdots")[0].innerHTML = str;
 }
+
 
 function skiptick(index) {
 	var a, b, c, d, timer;
