@@ -264,7 +264,7 @@ function updatetimer(index) {
 
     toggleclass(elcl(el, "skiptick")[0], "down", !!timer.tickskipped);
 
-    var previousStages = timer.stages; // Store previous stages
+    var previousStages = timer.stages || 0; // Initialize to 0 if undefined
     timer.stages = stages; // Update stages for next comparison
 
     // Check if a new growth tick has been reached
@@ -283,7 +283,6 @@ function updatetimer(index) {
     }
     elcl(el, "progressdots")[0].innerHTML = str;
 }
-
 
 function skiptick(index) {
 	var a, b, c, d, timer;
