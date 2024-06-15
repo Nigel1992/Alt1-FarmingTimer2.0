@@ -266,6 +266,7 @@ function updatetimer(index) {
 
     var previousStages = timer.stages || 0; // Initialize to 0 if undefined
     timer.stages = stages; // Update stages for next comparison
+    console.log("Previous Stages: " + previousStages + ", Current Stages: " + stages);
 
     // Check if a new growth tick has been reached
     if (stages > previousStages) {
