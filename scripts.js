@@ -266,20 +266,14 @@ function updatetimer(index) {
 
     var previousStages = timer.stages || 0; // Initialize to 0 if undefined
     timer.stages = stages; // Update stages for next comparison
-    console.log("Previous Stages: " + previousStages + ", Current Stages: " + stages);
 
-    // Check if a new growth tick has been reached
-    if (stages > previousStages) {
+    // Check if the plant has fully grown (reached all stages)
+    if (stages === timer.plant.stages && stages > previousStages) {
         // Play audio notification
         var notificationSound = document.getElementById("notificationSound");
         if (notificationSound) {
-            try {
-                notificationSound.currentTime = 0; // Rewind to the beginning (in case it's already playing)
-                notificationSound.play();
-                console.log("Notification sound played at " + new Date().toLocaleTimeString());
-            } catch (error) {
-                console.error("Error playing notification sound:", error);
-            }
+            notificationSound.currentTime = 0; // Rewind to the beginning (in case it's already playing)
+            notificationSound.play();
         }
     }
 
@@ -289,7 +283,6 @@ function updatetimer(index) {
     }
     elcl(el, "progressdots")[0].innerHTML = str;
 }
-
 
 function skiptick(index) {
 	var a, b, c, d, timer;
