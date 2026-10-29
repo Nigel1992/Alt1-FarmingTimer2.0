@@ -5,6 +5,8 @@
 
 # Alt1-FarmingTimer2.0
 
+[![Vibe Coded](https://img.shields.io/badge/Vibe_Coded-✨-8A2BE2?style=for-the-badge)](https://github.com)
+
 This project is a Plant Growth Timer script designed for tracking and notifying growth stages of plants.
 
 - Planning to add a feature that plays a sound or uses TTS to notify you whenever something is fully grown.
